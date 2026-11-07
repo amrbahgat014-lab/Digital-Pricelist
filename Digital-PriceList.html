@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>قائمة الأسعار</title>
+<style>
+:root{--bg:#f6f7f9;--sf:#fff;--tx:#1b2430;--mu:#6b7686;--bd:#dde2e9;--in:#fffbe6}
+@media(prefers-color-scheme:dark){:root{--bg:#15191f;--sf:#1e242c;--tx:#eef1f5;--mu:#98a3b3;--bd:#323b47;--in:#3a3516}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Tahoma,Arial,sans-serif;font-size:16px;line-height:1.6}
+#app{max-width:720px;margin:0 auto;padding:16px}
+.hd{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.hd img{max-height:56px;max-width:110px;object-fit:contain}
+h1{font-size:22px;margin:0;flex:1;font-weight:700;user-select:none;-webkit-user-select:none}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{display:flex;flex-direction:column;gap:6px}
+.big{width:100%;min-height:64px;border:0;color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;padding:8px}
+.big:active{transform:scale(.98)}
+.btn{font-family:inherit;font-size:14px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:8px;padding:6px 12px;cursor:pointer}
+.row{display:flex;gap:6px;align-items:center}
+.nav{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.crumb{color:var(--mu);font-size:14px}
+.card{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin-bottom:8px}
+.card b{font-size:17px;font-weight:700}
+.pr{font-size:20px;font-weight:700;white-space:nowrap}
+input,select{font-family:inherit;font-size:15px;color:var(--tx);background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:6px 8px;min-width:0}
+input.p{background:var(--in);width:90px;text-align:center}
+.box{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:14px}
+.msg{text-align:center;color:var(--mu);padding:40px 0}
+</style></head><body><div id="app"></div>
+<script id="data" type="application/json">{"title": "قائمة الأسعار", "color": "#1F3A5F", "shape": "round", "logo": "", "cats": [{"n": "كروت", "q": [{"l": "100 كارت", "m": [{"n": "كوشيه 300 جم", "p": 120}, {"n": "كوشيه مط", "p": 144}, {"n": "سلوفان لامع", "p": 168}]}, {"l": "500 كارت", "m": [{"n": "كوشيه 300 جم", "p": 450}, {"n": "كوشيه مط", "p": 540}, {"n": "سلوفان لامع", "p": 630}]}, {"l": "1000 كارت", "m": [{"n": "كوشيه 300 جم", "p": 800}, {"n": "كوشيه مط", "p": 960}, {"n": "سلوفان لامع", "p": 1120}]}]}, {"n": "فواتير", "q": [{"l": "50 فاتورة", "m": [{"n": "كربون 2 نسخة", "p": 300}, {"n": "كربون 3 نسخة", "p": 420}]}, {"l": "100 فاتورة", "m": [{"n": "كربون 2 نسخة", "p": 520}, {"n": "كربون 3 نسخة", "p": 728}]}, {"l": "200 فاتورة", "m": [{"n": "كربون 2 نسخة", "p": 950}, {"n": "كربون 3 نسخة", "p": 1330}]}]}, {"n": "فلايرات", "q": [{"l": "500 فلاير", "m": [{"n": "كوشيه 130 جم", "p": 700}, {"n": "كوشيه 170 جم", "p": 875}]}, {"l": "1000 فلاير", "m": [{"n": "كوشيه 130 جم", "p": 1100}, {"n": "كوشيه 170 جم", "p": 1375}]}, {"l": "5000 فلاير", "m": [{"n": "كوشيه 130 جم", "p": 4500}, {"n": "كوشيه 170 جم", "p": 5625}]}]}, {"n": "فولدرات", "q": [{"l": "100 فولدر", "m": [{"n": "كوشيه 300 جم", "p": 1500}, {"n": "سلوفان مط", "p": 1950}]}, {"l": "250 فولدر", "m": [{"n": "كوشيه 300 جم", "p": 3200}, {"n": "سلوفان مط", "p": 4160}]}, {"l": "500 فولدر", "m": [{"n": "كوشيه 300 جم", "p": 5800}, {"n": "سلوفان مط", "p": 7540}]}]}, {"n": "DTF", "q": [{"l": "1 متر", "m": [{"n": "فيلم عادي", "p": 250}, {"n": "فيلم جليتر", "p": 375}]}, {"l": "5 متر", "m": [{"n": "فيلم عادي", "p": 1100}, {"n": "فيلم جليتر", "p": 1650}]}, {"l": "10 متر", "m": [{"n": "فيلم عادي", "p": 2000}, {"n": "فيلم جليتر", "p": 3000}]}]}, {"n": "Indoor", "q": [{"l": "1 متر", "m": [{"n": "فلكس", "p": 90}, {"n": "فينيل لامع", "p": 144}, {"n": "كانفاس", "p": 180}]}, {"l": "5 متر", "m": [{"n": "فلكس", "p": 400}, {"n": "فينيل لامع", "p": 640}, {"n": "كانفاس", "p": 800}]}, {"l": "10 متر", "m": [{"n": "فلكس", "p": 750}, {"n": "فينيل لامع", "p": 1200}, {"n": "كانفاس", "p": 1500}]}]}, {"n": "استيكرات", "q": [{"l": "100 استيكر", "m": [{"n": "ورق لامع", "p": 150}, {"n": "فينيل مقاوم", "p": 225}]}, {"l": "500 استيكر", "m": [{"n": "ورق لامع", "p": 600}, {"n": "فينيل مقاوم", "p": 900}]}, {"l": "1000 استيكر", "m": [{"n": "ورق لامع", "p": 1000}, {"n": "فينيل مقاوم", "p": 1500}]}]}]}</script>
+<script>
+var TC=0,TT=0;
+var S={d:JSON.parse(document.getElementById('data').textContent),v:'h',c:0,q:0,edit:false,can:location.hash==='#edit',dirty:false};
+var RAD={square:'4px',round:'14px',pill:'999px'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(n){return (Number(n)||0).toLocaleString('en-US')+' ج'}
+function dirty(){S.dirty=true;var e=document.getElementById('sv');if(e)e.textContent='فيه تعديلات لسه محتاجة حفظ. دوس "حفظ النسخة المحدثة"'}
+function dl(){var c=document.documentElement.cloneNode(true);c.querySelector('#app').innerHTML='';c.querySelector('#data').textContent=JSON.stringify(S.d).replace(/</g,'\\u003c');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+c.outerHTML],{type:'text/html'}));a.download='price_list_'+new Date().toISOString().slice(0,10)+'.html';document.body.appendChild(a);a.click();a.remove();S.dirty=false;var e=document.getElementById('sv');if(e)e.textContent='اتنزلت النسخة. ارفعها مكان القديمة'}
+function bigBtn(l,a,i){return '<button class="big" style="background:'+esc(S.d.color)+';border-radius:'+RAD[S.d.shape]+'" data-a="'+a+'" data-i="'+i+'">'+esc(l)+'</button>'}
+function tile(l,a,i,f){if(!S.edit)return bigBtn(l,a,i);return '<div class="tile">'+bigBtn(l,a,i)+'<div class="row"><input data-f="'+f+'" data-i="'+i+'" value="'+esc(l)+'" style="flex:1"><button class="btn" data-a="del-'+a.slice(5)+'" data-i="'+i+'">حذف</button></div></div>'}
+function render(){
+ var A=document.getElementById('app'),d=S.d,h='';
+ var logo=d.logo?'<img src="'+esc(d.logo)+'" alt="">':'';
+ h+='<div class="hd">'+logo+(S.edit?'<input data-f="title" value="'+esc(d.title)+'" style="flex:1;font-size:20px;font-weight:700">':'<h1 data-a="title">'+esc(d.title)+'</h1>')+(S.can?'<button class="btn" data-a="edit">'+(S.edit?'تم':'تعديل')+'</button>':'')+'</div>';
+ if(S.edit){
+  h+='<div class="box"><span id="sv">التعديلات بتبان قدامك بس لحد ما تحفظ النسخة</span><button class="btn" data-a="dl">حفظ النسخة المحدثة</button>';
+  if(S.v==='h'){
+   h+='<label>لون الأزرار <input type="color" data-f="color" value="'+esc(d.color)+'"></label>';
+   h+='<label>الشكل <select data-f="shape"><option value="square"'+(d.shape==='square'?' selected':'')+'>مربع</option><option value="round"'+(d.shape==='round'?' selected':'')+'>حواف مدورة</option><option value="pill"'+(d.shape==='pill'?' selected':'')+'>بيضاوي</option></select></label>';
+   h+='<label>اللوجو <input type="file" accept="image/*" data-f="logo"></label>'+(d.logo?'<button class="btn" data-a="nologo">إزالة اللوجو</button>':'')}
+  h+='</div>'}
+ if(S.v==='h'){
+  h+='<div class="grid">'+d.cats.map(function(c,i){return tile(c.n,'open-c',i,'cn')}).join('')+'</div>';
+  if(S.edit)h+='<p><button class="btn" data-a="add-c">+ قسم جديد</button></p>'}
+ else if(S.v==='c'){
+  var c=d.cats[S.c];
+  h+='<div class="nav"><button class="btn" data-a="home">→ الرئيسية</button><b>'+esc(c.n)+'</b></div>';
+  h+='<div class="grid">'+c.q.map(function(q,i){return tile(q.l,'open-q',i,'ql')}).join('')+'</div>';
+  if(S.edit)h+='<p><button class="btn" data-a="add-q">+ كمية جديدة</button></p>'}
+ else{
+  var c=d.cats[S.c],q=c.q[S.q];
+  h+='<div class="nav"><button class="btn" data-a="back">→ رجوع</button><span class="crumb">'+esc(c.n)+' / '+esc(q.l)+'</span></div>';
+  h+=q.m.map(function(m,i){return S.edit?'<div class="card"><input data-f="mn" data-i="'+i+'" value="'+esc(m.n)+'" style="flex:1"><input class="p" type="number" inputmode="decimal" data-f="mp" data-i="'+i+'" value="'+esc(m.p)+'"><button class="btn" data-a="del-m" data-i="'+i+'">حذف</button></div>':'<div class="card"><b>'+esc(m.n)+'</b><span class="pr">'+fmt(m.p)+'</span></div>'}).join('');
+  if(!q.m.length)h+='<p class="msg">مفيش خامات هنا لسه.</p>';
+  if(S.edit)h+='<p><button class="btn" data-a="add-m">+ خامة جديدة</button></p>'}
+ A.innerHTML=h}
+var APP=document.getElementById('app');
+APP.addEventListener('click',function(e){
+ var b=e.target.closest('[data-a]');if(!b)return;var a=b.dataset.a,i=+b.dataset.i,d=S.d,ch=true;
+ if(a==='title'){var n=Date.now();TC=(n-TT<2000)?TC+1:1;TT=n;if(TC>=5){TC=0;S.can=true;S.edit=true;render()}return}
+ else if(a==='edit'){if(S.edit&&S.dirty&&!confirm('فيه تعديلات لسه متحفظتش. تقفل وضع التعديل؟'))return;S.edit=!S.edit}
+ else if(a==='dl'){dl();return}
+ else if(a==='open-c'){S.c=i;S.v='c'}
+ else if(a==='open-q'){S.q=i;S.v='q'}
+ else if(a==='home')S.v='h';
+ else if(a==='back')S.v='c';
+ else if(a==='add-c'){d.cats.push({n:'قسم جديد',q:[]});dirty()}
+ else if(a==='add-q'){d.cats[S.c].q.push({l:'كمية جديدة',m:[]});dirty()}
+ else if(a==='add-m'){d.cats[S.c].q[S.q].m.push({n:'خامة جديدة',p:0});dirty()}
+ else if(a==='del-c'){if(confirm('تمسح القسم ده بكل اللي جواه؟')){d.cats.splice(i,1);dirty()}}
+ else if(a==='del-q'){if(confirm('تمسح الكمية دي بخاماتها؟')){d.cats[S.c].q.splice(i,1);dirty()}}
+ else if(a==='del-m'){d.cats[S.c].q[S.q].m.splice(i,1);dirty()}
+ else if(a==='nologo'){d.logo='';dirty()}
+ else ch=false;
+ if(ch){render();if(S.dirty)dirty()}});
+APP.addEventListener('input',function(e){
+ var t=e.target,f=t.dataset.f;if(!f||f==='logo')return;var i=+t.dataset.i,d=S.d;
+ if(f==='title')d.title=t.value;
+ else if(f==='cn')d.cats[i].n=t.value;
+ else if(f==='ql')d.cats[S.c].q[i].l=t.value;
+ else if(f==='mn')d.cats[S.c].q[S.q].m[i].n=t.value;
+ else if(f==='mp')d.cats[S.c].q[S.q].m[i].p=Number(t.value)||0;
+ else if(f==='color'||f==='shape'){d[f]=t.value;render()}
+ dirty()});
+APP.addEventListener('change',function(e){
+ var t=e.target;if(t.dataset.f!=='logo'||!t.files[0])return;
+ var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var k=Math.min(1,240/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.d.logo=c.toDataURL('image/png');render();dirty()};im.src=r.result};r.readAsDataURL(t.files[0])});
+render();
+</script></body></html>
